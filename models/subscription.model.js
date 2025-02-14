@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-subscriptionSchema = new mongoose.Schema(
+const subscriptionSchema = new mongoose.Schema(
   {
     name: {
       type: String,
@@ -77,7 +77,7 @@ subscriptionSchema.pre("save", function (next) {
     );
   }
   // Auto-update the status if renewal date has passed
-  if (this.renewalDate < new Date()) {
+  if (this.renewalDate > new Date()) {
     this.status = "expired";
   }
   next();
