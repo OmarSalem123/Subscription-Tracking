@@ -10,7 +10,6 @@ const arcjetMiddleware = async (req, res, next) => {
         return res.status(403).json({ error: "Bot detected" });
       return res.status(403).json({ error: "Access denied" });
     }
-    console.log("Arcjet Decision:", decision);
     next();
   } catch (error) {
     console.log(`Arcjet middleware error: ${error}`);
